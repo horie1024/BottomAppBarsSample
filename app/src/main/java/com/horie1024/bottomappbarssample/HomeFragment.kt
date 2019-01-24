@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
-import androidx.navigation.fragment.findNavController
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -49,12 +49,10 @@ class HomeFragment : Fragment() {
         val button: Button = view.findViewById(R.id.button)
 
         val extras = FragmentNavigatorExtras(
-            imageView to "header_image",
-            titleView to "header_title"
+            button to "detail"
         )
-
         button.setOnClickListener {
-            findNavController().navigate(R.id.detail, null, null, extras)
+            view.findNavController().navigate(R.id.detail, null, null, extras)
         }
         return view
     }

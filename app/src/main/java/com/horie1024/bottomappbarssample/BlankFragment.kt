@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.transition.ChangeBounds
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -41,6 +42,14 @@ class BlankFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        sharedElementEnterTransition = ChangeBounds().apply {
+            duration = 250
+        }
+        sharedElementReturnTransition = ChangeBounds().apply {
+            duration = 250
+        }
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_blank, container, false)
     }
